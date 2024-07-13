@@ -76,7 +76,7 @@ while running:
     pygame.draw.circle(screen, green,(400, 300), point_radius)
     
     # Rotate each point around the center
-    rotated_points = [R_x @ point for point in points]
+    rotated_points = [R_z @ R_y @ R_x @ point for point in points]
     transformed_points = [T @ point for point in rotated_points]
 
     # Update the points for the next frame
